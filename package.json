@@ -1,0 +1,26 @@
+{
+  "name": "couple-api",
+  "version": "1.0.0",
+  "description": "In development",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -e 'require(\"./src/index\").start()'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JustalK/COUPLE-API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JustalK/COUPLE-API/issues"
+  },
+  "homepage": "https://github.com/JustalK/COUPLE-API#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "fastify": "^3.9.1",
+    "fastify-mongodb": "^2.0.1",
+    "fastify-plugin": "^3.0.0"
+  }
+}
