@@ -42,6 +42,7 @@ module.exports = {
 
 		module.exports.connect_to_database(server);
 		module.exports.adding_route(server, 'app');
+		module.exports.adding_route(server, 'question');
 
 		return new Promise(async (resolve, reject) => {
 			try {

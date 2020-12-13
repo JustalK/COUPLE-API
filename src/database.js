@@ -10,7 +10,7 @@ module.exports = {
 	**/
 	register_database: async (server, options) => {
 		server.register(require('fastify-mongodb'), {
-			url: 'mongodb://localhost:27017/test_database'
+			url: 'mongodb://localhost:27017/couple_api'
 		})
 	},
 	/**
