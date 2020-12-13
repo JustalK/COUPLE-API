@@ -1,7 +1,10 @@
 async function routes (server, options) {
-	server.get('/', async (request, reply) => {
-		const app = {name: process.env.API_NAME, status: 'RUNNING'};
-		return app;
+	server.post('/', async (request, reply) => {
+		if (request === null || request.body === null || request.body.query === null) {
+			throw new Error('A request cannot be empty !');
+		}
+
+		return reply.graphql(request.body.query)
 	})
 }
 

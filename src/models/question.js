@@ -10,8 +10,7 @@ const schema = new mongoose.Schema({
 	},
 	level: {
 		type: mongoose.Schema.Types.ObjectId,
-		ref: 'level',
-		require: true
+		ref: 'level'
 	},
 	types: [{
 		type: mongoose.Schema.Types.ObjectId,

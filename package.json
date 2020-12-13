@@ -19,10 +19,14 @@
   },
   "homepage": "https://github.com/JustalK/COUPLE-API#readme",
   "dependencies": {
+    "apollo-server-fastify": "^2.19.0",
     "dotenv": "^8.2.0",
     "fastify": "^3.9.1",
     "fastify-mongodb": "^2.0.1",
     "fastify-plugin": "^3.0.0",
+    "graphql": "^15.4.0",
+    "graphql-tools": "^4.0.8",
+    "mercurius": "^6.5.0",
     "mongoose": "^5.11.7"
   },
   "devDependencies": {
