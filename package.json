@@ -27,6 +27,7 @@
     "graphql": "^15.4.0",
     "graphql-tools": "^4.0.8",
     "mercurius": "^6.5.0",
+    "mongo-uri-builder": "^3.2.2",
     "mongoose": "^5.11.7"
   },
   "devDependencies": {

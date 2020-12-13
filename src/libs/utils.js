@@ -8,5 +8,13 @@ module.exports = {
 	**/
 	mode: node_env => {
 		return node_env !== undefined ? node_env : 'production';
+	},
+	promisify: query => {
+		return new Promise((resolve, reject) => {
+			query.exec((err, data) => {
+				if (err) reject(err);
+				else resolve(data);
+			});
+		})
 	}
 };

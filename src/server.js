@@ -3,7 +3,6 @@
 const database = require('./database');
 const { ApolloServer, gql } = require('apollo-server-fastify');
 const { makeExecutableSchema } = require('graphql-tools');
-let db;
 
 const typeDefs = gql`
 	type Question {
@@ -20,14 +19,12 @@ const typeDefs = gql`
 		questions: [Question]!
 	}
 `
-
+const models = require('./models/question')
 const resolvers = {
   Query: {
-	questions(_parent, _args, _context, _info) {
-		return _context
-			.collection('question')
-			.find({})
-			.toArray();
+	questions: async (_parent, _args, _context, _info) => {
+		return await models
+			.find({});
 	}
   }
 }
@@ -54,13 +51,6 @@ module.exports = {
 		server.register(require('./routes/' + filename_routes))
 	},
 	/**
-	* Create the link between the database MongoDB and fastify server
-	* @params {fastify} The fastify server to connect to the database
-	**/
-	connect_to_database: (server) => {
-		server.register(database.connector());
-	},
-	/**
 	* Allow us to use Graph QL with fastify
 	* @params {fastify} server The server allowed to use graphQl
 	**/
@@ -71,10 +61,7 @@ module.exports = {
 		})
 
 		const apollo = new ApolloServer({
-			schema,
-			context: async () => {
-				return server.mongo.db;
-			}
+			schema
 		});
 
 		server.register(apollo.createHandler({
@@ -91,7 +78,6 @@ module.exports = {
 	start: async (name, host, port) => {
 		const server = module.exports.create_server();
 
-		module.exports.connect_to_database(server);
 		module.exports.register_graphql(server);
 
 		return new Promise(async (resolve, reject) => {
