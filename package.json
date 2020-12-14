@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node -e 'require(\"./src/index\").start()'",
     "seed": "node -e 'require(\"./seeding/seeder.js\").seed()'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava --verbose --timeout=1m"
   },
   "repository": {
     "type": "git",
@@ -26,11 +26,19 @@
     "fastify-plugin": "^3.0.0",
     "graphql": "^15.4.0",
     "graphql-tools": "^4.0.8",
+    "isomorphic-fetch": "^3.0.0",
     "mercurius": "^6.5.0",
     "mongo-uri-builder": "^3.2.2",
     "mongoose": "^5.11.7"
   },
   "devDependencies": {
+    "ava": "^3.14.0",
     "mongo-seeding": "^3.5.0"
+  },
+  "ava": {
+	  "files": [
+		  "test/**/*",
+		  "!test/libs"
+	  ]
   }
 }
