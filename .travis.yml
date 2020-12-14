@@ -1,6 +1,13 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=8d0979175f0a1cc7d54de85ff1b7e6e628291ec3867241a77d2071e082caf7c3
 language: node_js
 node_js:
   - 15
 services:
   - mongodb
-after_success: npm run coverage
+before_script:
+  - npm install codeclimate-test-reporter
+after_success:
+  - npm run coverage
+  - codeclimate-test-reporter < ./coverage/lcov.info
