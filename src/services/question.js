@@ -8,7 +8,22 @@ const dbs = require('../dbs/' + filename);
 * Manage the services for the question model
 **/
 module.exports = {
-	questions: async (parent, args, context, info) => {
+	/**
+	* Services for getting all the question
+	**/
+	get_all_questions: async () => {
 		return dbs.get_all({});
+	},
+	/**
+	* Services for getting all the question of the same level
+	* @params {Object} parent The return value of the resolver (not needeed here)
+	* @params {Object} args The argument passed to the function
+	**/
+	get_all_questions_by_level: async (parent, args) => {
+		if(args.level === undefined) {
+			throw new Error('The `level` argument is necessary here.');
+		}
+
+		return dbs.get_all_by_level(args.level, args.limit);
 	}
 };
