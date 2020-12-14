@@ -6,8 +6,11 @@
   "scripts": {
     "start": "node -e 'require(\"./src/index\").start()'",
     "seed": "node -e 'require(\"./seeding/seeder.js\").seed()'",
-    "test": "nyc --reporter=html --reporter=text ava --verbose --timeout=1m",
+    "test": "nyc --reporter=text-lcov --reporter=text ava --verbose --timeout=1m",
 	"coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "engines": {
+	  "node": ">=15.0"
   },
   "repository": {
     "type": "git",
