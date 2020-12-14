@@ -1,33 +1,6 @@
 'use strict'
 
-const database = require('./database');
-const { ApolloServer, gql } = require('apollo-server-fastify');
-const { makeExecutableSchema } = require('graphql-tools');
-
-const typeDefs = gql`
-	type Question {
-		question: String
-		level: [Level]
-	}
-
-	type Level {
-		name: String
-		level: Int
-	}
-
-	type Query {
-		questions: [Question]!
-	}
-`
-const models = require('./models/question')
-const resolvers = {
-  Query: {
-	questions: async (_parent, _args, _context, _info) => {
-		return await models
-			.find({});
-	}
-  }
-}
+const apollo = require('./apollo');
 
 /**
 * This module take care of the server creation
@@ -43,30 +16,11 @@ module.exports = {
 		})
 	},
 	/**
-	* Add routes to the fastify server
-	* @params {fastify} server The fastify server
-	* @params {string} filename_routes The name of the filename containing the routes
-	**/
-	adding_route: (server, filename_routes) => {
-		server.register(require('./routes/' + filename_routes))
-	},
-	/**
 	* Allow us to use Graph QL with fastify
 	* @params {fastify} server The server allowed to use graphQl
 	**/
 	register_graphql: (server) => {
-		const schema = makeExecutableSchema({
-			typeDefs,
-			resolvers,
-		})
-
-		const apollo = new ApolloServer({
-			schema
-		});
-
-		server.register(apollo.createHandler({
-			path: '/api/graphql'
-		}));
+		server.register(apollo.get_handler());
 	},
 	/**
 	* Start the server using the parameter
