@@ -11,6 +11,8 @@ This project is a game. The game is a simple and interactive quizz that will tri
 
 This repository is designed only for the backend part of the application. I like to challenge myself. So I made everything with `Fastify` and `MongoDB`. I also added a new tools that I wanted to try `GraphQL` and `Apollo Server` who will improve my request.
 
+I do my continuous integration with `Travis` and my coverage is checked by `Coveralls` and `Codeclimate`. I also use `CodeClimate` for checking the level of maintainability of the code. Finally, I use `Ava` for making the test cases. For formatting the code, I use `xo`.
+
 ## Organization
 
 The following describe how the project is structured. It's an easy way for discovering the project and the way I organize the code.
