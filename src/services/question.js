@@ -25,5 +25,17 @@ module.exports = {
 		}
 
 		return dbs.get_all_by_level(args.level, args.limit);
+	},
+	/**
+	* Services for getting x random questions
+	* @params {Object} parent The return value of the resolver (not needeed here)
+	* @params {Object} args The argument passed to the function
+	**/
+	get_random_questions: async (parent, args) => {
+		if(args.limit === undefined) {
+			throw new Error('The `limit` argument is necessary here.');
+		}
+
+		return dbs.get_all_shuffle(args.limit);
 	}
 };

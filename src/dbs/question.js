@@ -15,6 +15,20 @@ module.exports = {
 			.find(find);
 	},
 	/**
+	* Call mongoDb for finding randomly x questions
+	* @params {number} limit The limit of question received
+	* @return {Question[]} Return an array of question
+	**/
+	get_all_shuffle: (limit = null) => {
+		return model.aggregate([
+			{
+				$sample: {
+					size: limit
+				}
+			}
+		]);
+	},
+	/**
 	* Call mongoDb for finding all the question of a same level
 	* @params {number} level The level of question searched
 	* @params {number} limit The limit of question received
