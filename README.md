@@ -83,3 +83,7 @@ For running the API, a single command is needed. You might want to use the [SSH 
 ```
 npm run start
 ```
+
+## License
+
+MIT - Copyright &copy; [JUSTAL Kevin](https://teamkd.online/)
