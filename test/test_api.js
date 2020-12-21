@@ -23,8 +23,8 @@ test('[STATIC] Testing the get_all_questions_by_level', async t => {
 	});
 
 	t.is(response.get_all_questions_by_level.length, 2);
-	t.is(response.get_all_questions_by_level[0].question, 'What do you think about living together ?');
-	t.is(response.get_all_questions_by_level[1].question, 'What do you think about rrrr together ?');
+	t.is(response.get_all_questions_by_level[0].question, 'Do you think you’re a good kisser?');
+	t.is(response.get_all_questions_by_level[1].question, 'What kind of outfit would you look like me to wear?');
 });
 
 test('[STATIC] Testing the get_all_questions', async t => {
@@ -36,9 +36,19 @@ test('[STATIC] Testing the get_all_questions', async t => {
 		}`
 	});
 
-	t.is(response.get_all_questions.length, 4);
-	t.is(response.get_all_questions[0].question, 'What do you think about living together ?');
-	t.is(response.get_all_questions[1].question, 'What do you think about rrrr together ?');
-	t.is(response.get_all_questions[2].question, 'What do you think about dddd together ?');
-	t.is(response.get_all_questions[3].question, 'What do you think about eeee together ?');
+	t.is(response.get_all_questions.length, 25);
+	t.is(response.get_all_questions[0].question, 'Do you think you’re a good kisser?');
+	t.is(response.get_all_questions[1].question, 'What kind of outfit would you look like me to wear?');
+	t.is(response.get_all_questions[2].question, 'What\'s your favorite part of my body?');
+	t.is(response.get_all_questions[3].question, 'Do you touch yourself in the week?');
+});
+
+test('[STATIC] Testing the count_total_questions', async t => {
+	const response = await m_utils.getter({ query: `
+		query {
+			count_total_questions
+		}`
+	});
+
+	t.is(response.get_all_questions.length, 25);
 });

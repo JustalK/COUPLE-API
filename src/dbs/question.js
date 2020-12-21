@@ -52,6 +52,14 @@ module.exports = {
 		])
 	},
 	/**
+	* Call mongoDb for counting the number of document corresponding to find
+	* @params {Object} find The matching parameters
+	* @return {Question[]} Return an array of question
+	**/
+	count: (find) => {
+		return model.countDocuments(find);
+	},
+	/**
 	* Call mongoDb for adding a question to the database
 	* @params {Question} question The question to add to the database
 	* @return {Question} The question added with the id

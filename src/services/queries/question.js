@@ -37,5 +37,12 @@ module.exports = {
 		}
 
 		return dbs.get_all_shuffle(args.limit);
+	},
+	/**
+	* Services for counting the number of question
+	**/
+	count_total_questions: async () => {
+		console.log(dbs.count({}));
+		return dbs.count({});
 	}
 };
