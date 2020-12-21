@@ -13,6 +13,15 @@ This repository is designed only for the backend part of the application. I like
 
 I do my continuous integration with `Travis` and my coverage is checked by `Coveralls` and `Codeclimate`. I also use `CodeClimate` for checking the level of maintainability of the code. Finally, I use `Ava` for making the test cases. For formatting the code, I use `xo`.
 
+## Plan of the presentation
+
+I explain with all the details how I build the project and my way of working.
+
+1. [Organization](#organization)
+2. [Seeding](#seeding)
+3. [Testing](#testing)
+4. [Running](#running)
+
 ## Organization
 
 The following describe how the project is structured. It's an easy way for discovering the project and the way I organize the code.
