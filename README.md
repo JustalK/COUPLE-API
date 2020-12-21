@@ -35,6 +35,14 @@ The following describe how the project is structured. It's an easy way for disco
 | services      | Regroup the services meaning the functions with the logic   |
 | types         | Regroup the type of GraphQL                                 |
 
+## Seeding
+
+For having a database with some data from the start, you can seed it with a single command. It will fill up all the db with dummy data using `mongo-seed`.
+
+```
+npm run seed
+```
+
 ## Testing
 
 #### Postman
@@ -57,4 +65,12 @@ For connecting to the API during the development, I use `localtunnel` for exposi
 ```
 npm install -g localtunnel
 lt --port 5000 --subdomain couple-api
+```
+
+## Running
+
+For running the API, a single command is needed. You might want to use the [SSH Tunneling](#ssh-tunneling).
+
+```
+npm run start
 ```
