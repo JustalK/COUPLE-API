@@ -50,5 +50,31 @@ test('[STATIC] Testing the count_total_questions', async t => {
 		}`
 	});
 
-	t.is(response.get_all_questions.length, 25);
+	t.is(response.count_total_questions, 25);
+});
+
+test('[STATIC] Testing mutator add_new_question', async t => {
+	const count = await m_utils.getter({ query: `
+		query {
+			count_total_questions
+		}`
+	});
+
+	t.is(count.count_total_questions, 25);
+
+	const response = await m_utils.getter({ query: `
+		mutation {
+			add_new_question(question: "Test") {
+				question
+			}
+		}`
+	});
+
+	const count_after_adding = await m_utils.getter({ query: `
+		query {
+			count_total_questions
+		}`
+	});
+
+	t.is(count_after_adding.count_total_questions, 26);
 });
