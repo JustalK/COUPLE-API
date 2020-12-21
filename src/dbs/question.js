@@ -50,5 +50,13 @@ module.exports = {
 				}
 			}
 		])
+	},
+	/**
+	* Call mongoDb for adding a question to the database
+	* @params {Question} question The question to add to the database
+	* @return {Question} The question added with the id
+	**/
+	insert: (question) => {
+		return model.create(question);
 	}
 };

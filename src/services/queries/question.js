@@ -2,10 +2,10 @@
 
 const path = require('path');
 const filename = path.basename(__filename, '.js');
-const dbs = require('../dbs/' + filename);
+const dbs = require('../../dbs/' + filename);
 
 /**
-* Manage the services for the question model
+* Manage the queries for the question model
 **/
 module.exports = {
 	/**
