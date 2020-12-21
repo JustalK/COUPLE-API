@@ -34,3 +34,16 @@ The following describe how the project is structured. It's an easy way for disco
 | models        | Regroup the models meaning the structure of a data          |
 | services      | Regroup the services meaning the functions with the logic   |
 | types         | Regroup the type of GraphQL                                 |
+
+## Testing
+
+![Alt text](documentation/postman/postman.jpg?raw=true "POSTMAN-CoupleAPI")
+
+For testing the code manually, I use `postman`. You can download my collection with all the queries and mutations already designed.
+[Collections Couple API](documentation/postman/collections.json?raw=true)
+
+For automatic tests, I use `Ava`. All the tests can be run with a single command. The command will also provide details on the coverage.
+
+```
+npm run test
+```
