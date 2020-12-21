@@ -37,6 +37,8 @@ The following describe how the project is structured. It's an easy way for disco
 
 ## Testing
 
+#### Postman
+
 ![Alt text](documentation/postman/postman.jpg?raw=true "POSTMAN-CoupleAPI")
 
 For testing the code manually, I use `postman`. You can download my collection with all the queries and mutations already designed.
@@ -46,4 +48,13 @@ For automatic tests, I use `Ava`. All the tests can be run with a single command
 
 ```
 npm run test
+```
+
+#### SSH Tunneling
+
+For connecting to the API during the development, I use `localtunnel` for exposing the server through a domain format. The server works on the port 5000, so I use the following commands :
+
+```
+npm install -g localtunnel
+lt --port 5000 --subdomain couple-api
 ```
