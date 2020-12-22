@@ -27,6 +27,20 @@ test('[STATIC] Testing the get_all_questions_by_level', async t => {
 	t.is(response.get_all_questions_by_level[1].question, 'What kind of outfit would you look like me to wear?');
 });
 
+test('[STATIC] Testing the get_all_questions_by_level without params', async t => {
+	const response = await m_utils.getter({ query: `
+		query {
+			get_all_questions_by_level {
+				question
+			}
+		}`
+	});
+
+	t.is(response.get_all_questions_by_level.length, 2);
+	t.is(response.get_all_questions_by_level[0].question, 'Do you think you’re a good kisser?');
+	t.is(response.get_all_questions_by_level[1].question, 'What kind of outfit would you look like me to wear?');
+});
+
 test('[STATIC] Testing the get_all_questions', async t => {
 	const response = await m_utils.getter({ query: `
 		query {
@@ -105,4 +119,19 @@ test('[STATIC] Testing mutator add_new_question', async t => {
 	});
 
 	t.is(count_after_adding.count_total_questions, 26);
+});
+
+test('[STATIC] Testing the get all level', async t => {
+	const response = await m_utils.getter({ query: `
+		query {
+			get_all_levels {
+				name
+				level
+			}
+		}`
+	});
+
+	t.is(response.get_all_levels.length, 1);
+	t.is(response.get_all_levels[0].name, 'Cautious');
+	t.is(response.get_all_levels[0].level, 0);
 });

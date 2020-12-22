@@ -34,7 +34,7 @@ module.exports = {
 	* @params {number} limit The limit of question received
 	* @return {Question[]} Return an array of question
 	**/
-	get_all_by_level: (level, limit = 20) => {
+	get_all_by_level: (level = 0, limit = 20) => {
 		return model.aggregate([
 			{
 				$lookup: {

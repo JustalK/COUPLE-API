@@ -20,10 +20,6 @@ module.exports = {
 	* @params {Object} args The argument passed to the function
 	**/
 	get_all_questions_by_level: async (parent, args) => {
-		if(args.level === undefined) {
-			throw new Error('The `level` argument is necessary here.');
-		}
-
 		return dbs.get_all_by_level(args.level, args.limit);
 	},
 	/**
