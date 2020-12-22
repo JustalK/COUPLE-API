@@ -66,6 +66,8 @@ npm run seed
 For testing the code manually, I use `postman`. You can download my collection with all the queries and mutations already designed.
 [Collections Couple API](documentation/postman/collections.json?raw=true)
 
+Everything has also been documented online on [postman documenter](https://documenter.getpostman.com/view/13955751/TVsvfmVk)
+
 For automatic tests, I use `Ava`. All the tests can be run with a single command. The command will also provide details on the coverage.
 
 ```
