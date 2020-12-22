@@ -53,6 +53,34 @@ test('[STATIC] Testing the count_total_questions', async t => {
 	t.is(response.count_total_questions, 25);
 });
 
+test('[STATIC] Testing the get_random_questions', async t => {
+	const response = await m_utils.getter({ query: `
+		query {
+			get_random_questions(limit: 2) {
+				question
+			}
+		}`
+	});
+
+	t.is(response.get_random_questions.length, 2);
+	t.not(response.get_random_questions[0].question, undefined);
+	t.not(response.get_random_questions[1].question, undefined);
+});
+
+test('[STATIC] Testing the get_random_questions without params', async t => {
+	const response = await m_utils.getter({ query: `
+		query {
+			get_random_questions {
+				question
+			}
+		}`
+	});
+
+	t.is(response.get_random_questions.length, 20);
+	t.not(response.get_random_questions[0].question, undefined);
+	t.not(response.get_random_questions[1].question, undefined);
+});
+
 test('[STATIC] Testing mutator add_new_question', async t => {
 	const count = await m_utils.getter({ query: `
 		query {

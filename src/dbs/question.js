@@ -19,7 +19,7 @@ module.exports = {
 	* @params {number} limit The limit of question received
 	* @return {Question[]} Return an array of question
 	**/
-	get_all_shuffle: (limit = null) => {
+	get_all_shuffle: (limit = 20) => {
 		return model.aggregate([
 			{
 				$sample: {
