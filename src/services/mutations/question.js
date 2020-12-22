@@ -15,11 +15,7 @@ module.exports = {
 	* @params {Object} args The argument passed to the function
 	**/
 	add_new_question: async (parent, args) => {
-		try {
-			const question = new Question(args);
-			return dbs.insert(question);
-		} catch (error) {
-			throw new Error(error.message);
-		}
+		const question = new Question(args);
+		return dbs.insert(question);
 	}
 };
