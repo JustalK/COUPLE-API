@@ -17,10 +17,15 @@ I do my continuous integration with `Travis` and my coverage is checked by `Cove
 
 I explain with all the details how I build the project and my way of working.
 
-1. [Organization](#organization)
-2. [Seeding](#seeding)
-3. [Testing](#testing)
-4. [Running](#running)
+1. [ERD](#erd)
+2. [Organization](#organization)
+3. [Seeding](#seeding)
+4. [Testing](#testing)
+5. [Running](#running)
+
+## ERD
+
+![Alt text](documentation/database/erd.png?raw=true "ERD-CoupleAPI")
 
 ## Organization
 
