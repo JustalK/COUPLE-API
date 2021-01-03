@@ -8,8 +8,14 @@ const schema = new mongoose.Schema({
 		trim: true,
 		require: true
 	},
-	level: {
-		type: Number,
+	icon: {
+		type: String,
+		trim: true,
+		require: true
+	},
+	source: {
+		type: String,
+		trim: true,
 		require: true
 	}
 }, {

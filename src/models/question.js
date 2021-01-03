@@ -8,13 +8,9 @@ const schema = new mongoose.Schema({
 		trim: true,
 		require: true
 	},
-	level: {
+	topics: [{
 		type: mongoose.Schema.Types.ObjectId,
-		ref: 'level'
-	},
-	types: [{
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'type'
+		ref: 'topic'
 	}]
 }, {
 	timestamps: {

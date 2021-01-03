@@ -5,13 +5,13 @@ const filename = path.basename(__filename, '.js');
 const dbs = require('../../dbs/' + filename);
 
 /**
-* Manage the queries for the level model
+* Manage the queries for the topic model
 **/
 module.exports = {
 	/**
-	* Get all the levels
+	* Get all the topics
 	**/
-	get_all_levels: async () => {
+	get_all_topics: async () => {
 		return dbs.get_all({});
 	}
 };

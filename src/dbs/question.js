@@ -29,24 +29,16 @@ module.exports = {
 		]);
 	},
 	/**
-	* Call mongoDb for finding all the question of a same level
-	* @params {number} level The level of question searched
+	* Call mongoDb for finding all the question of a same topics
+	* @params {[String]} topics The topics searched
 	* @params {number} limit The limit of question received
 	* @return {Question[]} Return an array of question
 	**/
-	get_all_by_level: (level = 0, limit = 20) => {
+	get_all_by_topics: (topics, limit = 20) => {
 		return model.aggregate([
 			{
-				$lookup: {
-					from: "level",
-					localField: "level",
-					foreignField: "_id",
-					as: "level_populated"
-				}
-			},
-			{
 				$match: {
-					"level_populated.level": level
+					"topics": {$in: topics}
 				}
 			}
 		])

@@ -3,7 +3,9 @@
 const { gql } = require('apollo-server-fastify');
 
 module.exports = gql`
-	type Type {
+	type Topic {
 		name: String
+		icon: String
+		source: String
 	}
 `

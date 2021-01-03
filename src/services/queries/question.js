@@ -15,12 +15,20 @@ module.exports = {
 		return dbs.get_all({});
 	},
 	/**
-	* Services for getting all the question of the same level
+	* Services for getting all the question for topics specified
 	* @params {Object} parent The return value of the resolver (not needeed here)
 	* @params {Object} args The argument passed to the function
 	**/
-	get_all_questions_by_level: async (parent, args) => {
-		return dbs.get_all_by_level(args.level, args.limit);
+	get_all_questions_by_topics: async (parent, args) => {
+		return dbs.get_all_by_topics(args.topics, args.limit);
+	},
+	/**
+	* Services for getting random questions for topics specified
+	* @params {Object} parent The return value of the resolver (not needeed here)
+	* @params {Object} args The argument passed to the function
+	**/
+	get_random_questions_by_topics: async (parent, args) => {
+		return dbs.get_random_by_topics(args.topics, args.limit);
 	},
 	/**
 	* Services for getting x random questions
