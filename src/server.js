@@ -39,6 +39,10 @@ module.exports = {
 			resolve(true);
 		});
 	},
+	/**
+	* Handle the callback of the server listening
+	* @params {Error} error The object error returned by the listen function
+	**/
 	errors: (error) => {
 		if (error) {
 		 	throw new Error('Server fail');
