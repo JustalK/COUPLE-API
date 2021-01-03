@@ -3,6 +3,7 @@
 const path = require('path');
 const filename = path.basename(__filename, '.js');
 const model = require('../models/' + filename);
+const utils = require('../libs/utils');
 
 module.exports = {
 	/**
@@ -31,14 +32,37 @@ module.exports = {
 	/**
 	* Call mongoDb for finding all the question of a same topics
 	* @params {[String]} topics The topics searched
-	* @params {number} limit The limit of question received
 	* @return {Question[]} Return an array of question
 	**/
-	get_all_by_topics: (topics, limit = 20) => {
+	get_all_by_topics: (topics_id) => {
 		return model.aggregate([
 			{
 				$match: {
-					"topics": {$in: topics}
+					"topics": {
+						$in: utils.array_id_to_array_mongoose_id(topics_id)
+					}
+				}
+			}
+		])
+	},
+	/**
+	* Call mongoDb for finding random question of a same topics
+	* @params {[String]} topics The topics searched
+	* @params {number} limit The limit of question received
+	* @return {Question[]} Return an array of question
+	**/
+	get_random_by_topics: (topics_id, limit = 20) => {
+		return model.aggregate([
+			{
+				$match: {
+					"topics": {
+						$in: utils.array_id_to_array_mongoose_id(topics_id)
+					}
+				}
+			},
+			{
+				$sample: {
+					size: limit
 				}
 			}
 		])

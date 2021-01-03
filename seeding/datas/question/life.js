@@ -6,19 +6,20 @@ module.exports = [
 	{
     	question: "Do you think you’re a good kisser?",
 		topics: [
-			mongoose.Types.ObjectId("5fd5b78efbc2f7a33c2cf000")
+			mongoose.Types.ObjectId("5fd5b78efbc2f7a33c2cf001")
 		]
 	},
 	{
 		question: "What kind of outfit would you look like me to wear?",
 		topics: [
-			mongoose.Types.ObjectId("5fd5b78efbc2f7a33c2cf000")
+			mongoose.Types.ObjectId("5fd5b78efbc2f7a33c2cf001")
 		]
 	},
 	{
 		question: "What's your favorite part of my body?",
 		topics: [
-			mongoose.Types.ObjectId("5fd5b78efbc2f7a33c2cf000")
+			mongoose.Types.ObjectId("5fd5b78efbc2f7a33c2cf000"),
+			mongoose.Types.ObjectId("5fd5b78efbc2f7a33c2cf001")
 		]
 	},
 	{

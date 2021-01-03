@@ -41,7 +41,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "59ca6a68-289a-4b61-9f50-1ee0faefeb56",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -51,15 +50,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "dc28cfee-d397-4a8d-9984-0b4ae7d5fcec",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Queries",
@@ -121,15 +118,71 @@
 					"response": []
 				},
 				{
-					"name": "Get all question by level",
+					"name": "Get all topics",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "query ($level: Int) { \n    get_all_questions_by_level(level: $level) {\n        question\n    }\n}",
-								"variables": "{\n    \"level\": 0\n}"
+								"query": "query { \n    get_all_topics {\n        name\n        icon\n        source\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://couple-api.loca.lt/api/graphql",
+							"protocol": "https",
+							"host": [
+								"couple-api",
+								"loca",
+								"lt"
+							],
+							"path": [
+								"api",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all questions by topics",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query ($topics: [String]) { \n    get_all_questions_by_topics(topics: $topics) {\n        question\n    }\n}",
+								"variables": "{\n    \"topics\": [\"5fd5b78efbc2f7a33c2cf000\", \"5fd5b78efbc2f7a33c2cf001\"]\n}"
+							}
+						},
+						"url": {
+							"raw": "https://couple-api.loca.lt/api/graphql",
+							"protocol": "https",
+							"host": [
+								"couple-api",
+								"loca",
+								"lt"
+							],
+							"path": [
+								"api",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get random questions by topics",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query ($topics: [String], $limit: Int) { \n    get_random_questions_by_topics(topics: $topics, limit: $limit) {\n        question\n    }\n}",
+								"variables": "{\n    \"topics\": [\"5fd5b78efbc2f7a33c2cf000\", \"5fd5b78efbc2f7a33c2cf001\"],\n    \"limit\": 3\n}"
 							}
 						},
 						"url": {
@@ -176,9 +229,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

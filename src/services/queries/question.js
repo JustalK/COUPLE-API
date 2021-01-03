@@ -20,7 +20,7 @@ module.exports = {
 	* @params {Object} args The argument passed to the function
 	**/
 	get_all_questions_by_topics: async (parent, args) => {
-		return dbs.get_all_by_topics(args.topics, args.limit);
+		return dbs.get_all_by_topics(args.topics);
 	},
 	/**
 	* Services for getting random questions for topics specified
