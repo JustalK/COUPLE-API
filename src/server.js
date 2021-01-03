@@ -35,13 +35,13 @@ module.exports = {
 		module.exports.register_graphql(server);
 
 		return new Promise(async (resolve, reject) => {
-			try {
-				await server.listen(port);
-				resolve(true);
-			} catch (err) {
-				server.log.error(err);
-				process.exit(1);
-			}
+			await server.listen({ port: port, host: host}, module.exports.errors);
+			resolve(true);
 		});
+	},
+	errors: (error) => {
+		if (error) {
+		 	throw new Error('Server fail');
+		}
 	}
 }
