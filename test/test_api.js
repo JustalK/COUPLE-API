@@ -28,6 +28,35 @@ test('[STATIC] Testing the get_all_questions_by_topics', async t => {
 	t.is(response.get_all_questions_by_topics[2].question, 'What\'s your favorite part of my body?');
 });
 
+test('[STATIC] Testing the get_random_questions_by_topics', async t => {
+	const response = await m_utils.getter({ query: `
+		query {
+			get_random_questions_by_topics(topics: ["5fd5b78efbc2f7a33c2cf001"], limit: 2) {
+				question
+			}
+		}`
+	});
+
+	t.is(response.get_random_questions_by_topics.length, 2);
+	t.not(response.get_random_questions_by_topics[0].question, undefined);
+	t.not(response.get_random_questions_by_topics[1].question, undefined);
+});
+
+test('[STATIC] Testing the get_random_questions_by_topics without limit', async t => {
+	const response = await m_utils.getter({ query: `
+		query {
+			get_random_questions_by_topics(topics: ["5fd5b78efbc2f7a33c2cf001"]) {
+				question
+			}
+		}`
+	});
+
+	t.is(response.get_random_questions_by_topics.length, 3);
+	t.not(response.get_random_questions_by_topics[0].question, undefined);
+	t.not(response.get_random_questions_by_topics[1].question, undefined);
+	t.not(response.get_random_questions_by_topics[2].question, undefined);
+});
+
 test('[STATIC] Testing the get_all_questions', async t => {
 	const response = await m_utils.getter({ query: `
 		query {
